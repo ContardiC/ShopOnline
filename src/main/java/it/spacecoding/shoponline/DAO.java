@@ -11,7 +11,7 @@ public class DAO {
     private Connection connection;
     private PreparedStatement preparedStatement;
     private ResultSet resultSet;
-    public Connection getConnection() throws SQLException {
+    public Connection getConnection(){
         if(connection == null) {
 
             MysqlDataSource dataSource = new MysqlDataSource();
@@ -20,16 +20,34 @@ public class DAO {
             dataSource.setUser("root");
             dataSource.setPassword("root");
             dataSource.setPort(8889);
-            connection = dataSource.getConnection();
+            try{
+                connection = dataSource.getConnection();
+            }catch (SQLException e){
+                System.out.println(e.getMessage());
+            }
             System.out.println(connection.toString());
         }
         return connection;
     }
-    public ResultSet getProducts() throws SQLException {
+    /**
+     * Retrieves all products from the database.
+     *
+     * @return a ResultSet containing all product data, or null if a database error occurs
+     */
+    public ResultSet getProducts() {
         String sql = "select * from products";
-        preparedStatement = connection.prepareStatement(sql);
-        resultSet = preparedStatement.executeQuery();
+        resultSet = null;
+        try{
+            preparedStatement = connection.prepareStatement(sql);
+            resultSet = preparedStatement.executeQuery();
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
         return resultSet;
+    }
+    public int insertProduct(){
+        String sql = "insert into products values(?,?,?,?)";
+        return 1;
     }
 
 }

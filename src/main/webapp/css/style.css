@@ -1,0 +1,18 @@
+table {
+    border-collapse: collapse; /* Remove default table border spacing */
+    width: 100%; /* Make the table occupy full width */
+}
+
+thead {
+    background-color: #f1f1f1; /* Light grey background for the header */
+}
+
+th, td {
+    text-align: left; /* Align content to the left */
+    padding: 8px; /* Add padding for spacing */
+    border: 1px solid #ddd; /* Add a thin border to each cell */
+}
+
+tr:nth-child(even) { /* Style even rows with a light background */
+    background-color: #f9f9f9;
+}

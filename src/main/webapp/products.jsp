@@ -1,8 +1,13 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: carlocontardi
+  Date: 18/10/24
+  Time: 17:25
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JavaShop</title>
+    <title>JavaShop -Prodotti</title>
     <meta charset="UTF-8">
     <meta name="author" content="Carlo Contardi">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +15,6 @@
     <meta name="keywords" content="Java">
 </head>
 <body>
-<h1>Benvenuto in Java Shop
-</h1>
-<br/>
-<a href="products.jsp">Prodotti</a>
+<a href="products-servlet">Visualizza tutti i prodotti</a>
 </body>
 </html>
