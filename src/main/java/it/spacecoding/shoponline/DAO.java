@@ -1,6 +1,7 @@
 package it.spacecoding.shoponline;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
+import it.spacecoding.shoponline.beans.UserBean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -49,5 +50,22 @@ public class DAO {
         String sql = "insert into products values(?,?,?,?)";
         return 1;
     }
+    public int addNewUser(UserBean user){
+        int result = 0;
+        String sql = "INSERT INTO users(first_name, last_name,email, password) VALUES('"+user.getFirstName()+"','"+user.getLastName()+"','"+user.getEmail()+"','"+user.getPassword()+"')";
+        try{
+            preparedStatement = getConnection().prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 
+            preparedStatement.executeUpdate();
+
+            resultSet = preparedStatement.getGeneratedKeys();
+
+            resultSet.next();
+
+            return resultSet.getInt(1);
+        }catch (SQLException e){
+            System.out.println(e.getMessage());
+        }
+        return result;
+    }
 }

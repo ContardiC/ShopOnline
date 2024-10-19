@@ -20,16 +20,16 @@
 <body class="d-flex align-items-center py-4 bg-body-tertiary">
 <!-- TODO FIX: ridimensionare lpagina-->
 <main class="form-signin w-100 m-auto">
-    <form>
+    <form method="post" action="users-servlet">
 
         <img class="mb-4" src="images/bag-heart.svg" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
         <div class="form-floating">
-            <input type="text" class="form-control" id="first-name" placeholder="First name" name="fname">
+            <input type="text" class="form-control" id="first-name" placeholder="First name" name="first-name">
             <label for="first-name">First Name</label>
         </div>
         <div class="form-floating">
-            <input type="text" class="form-control" id="last-name" placeholder="Last name" name="lname">
+            <input type="text" class="form-control" id="last-name" placeholder="Last name" name="last-name">
             <label for="last-name">Last Name</label>
         </div>
         <div class="form-floating">
